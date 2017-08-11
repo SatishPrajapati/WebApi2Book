@@ -24,7 +24,7 @@ bld/
 [Oo]bj/
 [Ll]og/
 
-lib/
+lib/*
 
 
 
