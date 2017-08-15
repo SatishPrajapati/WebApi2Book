@@ -13,6 +13,7 @@ using WebApi2Book.Common;
 using WebApi2Book.Common.Logging;
 using WebApi2Book.Data.SqlServer.Mapping;
 using NHibernate.Context;
+using WebApi2Book.Web.Common;
 
 namespace WebApi2Book.Web.Api
 {
@@ -28,6 +29,7 @@ namespace WebApi2Book.Web.Api
             ConfigureLog4Net(container);
             ConfigureNHibernate(container);
             container.Bind<IDateTime>().To<DateTimeAdapter>().InSingletonScope();
+            container.Bind<IActionTransactionHelper>().To<ActionTransactionHelper>().InRequestScope();
         }
 
         private void ConfigureLog4Net(IKernel container)

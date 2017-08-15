@@ -1,6 +1,7 @@
 ﻿using System.Net.Http;
 using System.Web.Http;
 using WebApi2Book.Web.Api.Models;
+using WebApi2Book.Web.Common;
 
 namespace WebApi2Book.Web.Api.Controllers.V2
 {
@@ -9,6 +10,7 @@ namespace WebApi2Book.Web.Api.Controllers.V2
     {
         [Route("", Name = "AddTaskRouteV2")]
         [HttpPost]
+        [UnitOfWorkActionFilter]
         public Task AddTask(HttpRequestMessage requestMessage, Task newTask)
         {
             return new Task
